@@ -7,7 +7,9 @@ export default function ServerList(props) {
       className={props.isHighlighted ? "server highlighted" : "server"}
       onClick={props.onClick}
     >
-      <h3>{serverLookup(props.server)}</h3>
+      <div className='server-spacing'>
+        <span>{serverLookup(props.server)}</span>
+      </div>
     </div>
   );
 }

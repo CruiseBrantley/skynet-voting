@@ -13,11 +13,6 @@
     height: 100vh;
 }
 
-.server {
-    cursor: pointer;
-    user-select: none;
-}
-
 .highlighted {
     color: red;
     cursor: pointer;
@@ -25,13 +20,11 @@
 
 .left-pane {
     height: 80%;
-    text-align: center;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     flex: 1;
-    border-right: 1px solid black;
 }
 
 .left-pane h1 {
@@ -48,9 +41,34 @@
     flex: 3;
 }
 
+.background-element {
+    position: fixed;
+    height: 1.2rem;
+    left: auto;
+    width: inherit;
+    background: green;
+}
+
 .results-container {
     display: flex;
     justify-content: space-between;
-    width: 50%;
-    min-width: 20rem;
+    width: 20rem;
+    overflow: hidden;
+}
+
+.server {
+    cursor: pointer;
+    user-select: none;
+    margin: 2.5rem 0 2.5rem 0;
+    justify-content: center;
+}
+
+.server span {
+    font-size: x-large;
+    font-weight: bold;
+    text-align: left;
+}
+
+.server-spacing {
+    width: 10rem;
 }
