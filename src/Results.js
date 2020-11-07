@@ -14,37 +14,25 @@ export default function Results({ data, currentServer }) {
 
   useEffect(() => {
     window.addEventListener('resize', handleResize)
+
+    function setWidth () {
+      if (window.innerWidth < 800) return setCurrentWidth(window.innerWidth)
+      return setCurrentWidth(window.innerWidth * .7)
+    }
+
     function handleResize () {
-      setCurrentWidth(window.innerWidth * .7)
+      setWidth()
       setCurrentHeight(window.innerHeight * .8)
     }
-    setCurrentWidth(window.innerWidth * .7)
+    
+    setWidth()
     setCurrentHeight(window.innerHeight * .8)
   }, [])
 
   return (
     <div className="right-pane">
-      {/* {data
-        ? data.map(game => {
-            return (
-              <div className="results-container">
-                <div className="left-result">{game.title}</div>
-                <div className="right-result">
-                  {`${
-                    game.hasVoted && game.hasVoted.length
-                      ? game.hasVoted.length
-                      : 0
-                  } votes`}
-                </div>
-              </div>
-            );
-          })
-        : "Select a server"} */}
         { data ?
           <>
-            {/* <PieChart width={400} height={400}>
-              <Pie dataKey="value" startAngle={0} endAngle={360} data={options(data)} cx={200} cy={200} outerRadius={80} fill="#8884d8" label={i => `${i.value}: ${i.name.split(/[\s,:]+/)[0]}`} />
-            </PieChart> */}
             <BarChart 
               width={currentWidth}
               height={currentHeight}
