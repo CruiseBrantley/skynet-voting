@@ -3,6 +3,7 @@ import React from "react";
 export default function Results({ data, currentServer }) {
   return (
     <div className="right-pane">
+      <h1>Results</h1>
       {data
         ? data.map(game => {
             return (

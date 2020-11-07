@@ -19,6 +19,7 @@ export default function Container({ data }) {
   return (
     <div className="container">
       <div className="left-pane">
+        <h1>Servers</h1>
         {servers.map(server => (
           <Server
             key={server}

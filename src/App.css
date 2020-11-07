@@ -1,6 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .container {
     display: flex;
     flex: 1;
+    padding: 2rem;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -17,18 +24,27 @@
 }
 
 .left-pane {
-    justify-content: center;
+    height: 80%;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
     flex: 1;
     border-right: 1px solid black;
-    text-align: center;
+}
+
+.left-pane h1 {
+    align-self: center;
 }
 
 .right-pane {
+    height: 80%;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex: 3;
 }
 
