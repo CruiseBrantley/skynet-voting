@@ -27,10 +27,6 @@
     flex: 1;
 }
 
-.left-pane h1 {
-    align-self: center;
-}
-
 .right-pane {
     height: 80%;
     text-align: center;
@@ -71,4 +67,27 @@
 
 .server-spacing {
     width: 10rem;
+}
+
+@media (max-width: 800px) {
+    .container {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .left-pane {
+        height: auto;
+        width: auto;
+        flex: 0;
+        margin: 2rem;
+    }
+
+    .right-pane {
+        height: auto;
+        width: auto;
+    }
+
+    .server {
+        margin: 0;
+    }
 }
