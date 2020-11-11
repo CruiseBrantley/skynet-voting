@@ -5,7 +5,8 @@ export default id => {
 
 const serverList = {
   '160135882274373633': 'Sir Ver',
-  '525112230006489091': 'Sirian',
+  '525112230006489091': 'Making Things Simpler',
   '579210338352889867': 'FireRaven101',
-  '673870633242722334': 'Cyphane'
+  '673870633242722334': 'Cyphane',
+  '438811508927889410': 'VERY NICE'
 }
