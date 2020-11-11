@@ -13,11 +13,6 @@
     height: 100vh;
 }
 
-.highlighted {
-    color: red;
-    cursor: pointer;
-}
-
 .left-pane {
     height: 80%;
     display: flex;
@@ -36,6 +31,12 @@
     align-items: center;
     justify-content: space-between;
     flex: 3;
+}
+
+.empty-right-pane {
+    display: flex;
+    flex: 1;
+    align-items: center;
 }
 
 .background-element {
@@ -58,6 +59,19 @@
     user-select: none;
     margin: 2.5rem 0 2.5rem 0;
     justify-content: center;
+    background-color: lightgray;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 5px 5px 5px #aaaaaa;
+}
+
+.server:active {
+    box-shadow: inset 5px 5px 5px #aaaaaa;
+}
+
+.highlighted {
+    background-color: rgb(130, 202, 157);
 }
 
 .server span {

@@ -51,7 +51,11 @@ export default function Results({ data, currentServer }) {
               <Bar dataKey="value" fill="#82ca9d" />
             </BarChart>
           </>
-        : null }
+        : 
+          <div className="empty-right-pane">
+            <h1>Choose A Server</h1>
+          </div>
+      }
     </div>
   );
 }
