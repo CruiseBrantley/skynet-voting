@@ -1,7 +1,4 @@
-export default id => {
-  if (serverList[id]) return serverList[id]
-  return id
-}
+export default id => serverList[id] || id
 
 const serverList = {
   '160135882274373633': 'Sir Ver',
