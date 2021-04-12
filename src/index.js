@@ -5,11 +5,14 @@ import { FirebaseDatabaseProvider } from "@react-firebase/database";
 import firebase from "firebase/app";
 import "firebase/database";
 import config from "./config";
+import { BrowserRouter as Router } from 'react-router-dom';
 import "./App.css";
 
 ReactDOM.render(
   <FirebaseDatabaseProvider firebase={firebase} {...config}>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </FirebaseDatabaseProvider>,
   document.getElementById("root")
 );
