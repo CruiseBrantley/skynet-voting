@@ -1,61 +1,57 @@
-import React, { useState, useEffect } from "react";
-import { PieChart, Pie, CartesianGrid, Bar, YAxis, XAxis, BarChart, Tooltip } from "recharts"
+import React, { useState, useEffect } from 'react'
+import { VictoryBar } from 'victory'
+import CustomLabel from './CustomLabel'
 
-const options = data => {
-  return data.map(game => {
-      return { name: game.title, value: game.hasVoted ? game.hasVoted.length : 0 }
-    })
-}
-
-export default function Results({ data, currentServer }) {
-
-  const [currentWidth, setCurrentWidth] = useState(600)
-  const [currentHeight, setCurrentHeight] = useState(600)
+export default function Results ({ data, currentServer }) {
+  const [highest, setHighest] = useState(0)
 
   useEffect(() => {
-    window.addEventListener('resize', handleResize)
+    setHighest(0)
+  }, [data])
 
-    function setWidth () {
-      if (window.innerWidth < 800) return setCurrentWidth(window.innerWidth)
-      return setCurrentWidth(window.innerWidth * .7)
-    }
-
-    function handleResize () {
-      setWidth()
-      setCurrentHeight(window.innerHeight * .8)
-    }
-    
-    setWidth()
-    setCurrentHeight(window.innerHeight * .8)
-  }, [])
+  const options = () => {
+    return data
+      .map(game => {
+        if (game.hasVoted?.length > highest) setHighest(game.hasVoted.length)
+        return { x: game.title, y: game.hasVoted ? game.hasVoted.length : 0 }
+      })
+      .reverse()
+  }
 
   return (
-    <div className="right-pane">
-        { data ?
-          <>
-            <BarChart 
-              width={currentWidth}
-              height={currentHeight}
-              data={options(data)}
-              layout="vertical"
-              margin={{top: 5, right: 20, left: 20, bottom: 5}}
-            >
-              <XAxis type="number" />
-              <YAxis type="category"
-                dx={-10}
-                width={150}
-                dataKey="name"
-              />
-              <CartesianGrid strokeDasharray="3 3"/>
-              <Tooltip/>
-              <Bar dataKey="value" fill="#82ca9d" />
-            </BarChart>
-          </>
-        : 
-          <div className="empty-right-pane">
-            <h1>Choose A Server</h1>
-          </div>
-      }
+    <div className='right-pane'>
+      {console.log(highest)}
+      {data ? (
+        <>
+          <VictoryBar
+            data={options(data)}
+            barRatio={0.7}
+            labels={({ datum }) => datum.x}
+            horizontal
+            animate={{
+              duration: 500,
+              onLoad: { duration: 500 },
+              onchange: { duration: 500 }
+            }}
+            style={{
+              data: {
+                fill: ({ datum }) => (datum.y >= highest ? 'gold' : 'teal'),
+                width: 10
+              },
+              labels: {
+                fill: ({ datum }) => (datum.y >= highest ? 'crimson' : 'white'),
+                fontSize: 10,
+                textShadow: '1px 1px black'
+              }
+            }}
+            labelComponent={<CustomLabel />}
+          />
+        </>
+      ) : (
+        <div className='empty-right-pane'>
+          <h1>Choose A Server</h1>
+        </div>
+      )}
     </div>
-  );
+  )
 }

@@ -1,4 +1,5 @@
-export default id => serverList[id] || id
+const server = id => serverList[id] || id
+export default server
 
 const serverList = {
   '160135882274373633': 'Sir Ver',

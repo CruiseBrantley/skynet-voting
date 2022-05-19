@@ -6,31 +6,27 @@
 
 .container {
     display: flex;
+    flex-direction: column;
     flex: 1;
     padding: 2rem;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: #282c34;
 }
 
 .left-pane {
-    height: 80%;
     display: flex;
     justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    flex: 1;
-    max-width: 300px;
 }
 
 .right-pane {
-    height: 80%;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    flex: 3;
+    flex: 1;
 }
 
 .empty-right-pane {
@@ -57,10 +53,14 @@
 .server {
     cursor: pointer;
     user-select: none;
-    margin: 2.5rem 0 2.5rem 0;
+    display: flex;
+    align-items: center;
+    height: 5rem;
     justify-content: center;
+    text-align: center;
     background-color: lightgray;
     padding: 10px;
+    margin-right: 1rem;
     border-radius: 10px;
     text-align: center;
     box-shadow: 5px 5px 5px #aaaaaa;
@@ -82,27 +82,4 @@
 
 .server-spacing {
     width: 10rem;
-}
-
-@media (max-width: 800px) {
-    .container {
-        flex-direction: column;
-        padding: 0;
-    }
-
-    .left-pane {
-        height: auto;
-        width: auto;
-        flex: 0;
-        margin: 2rem;
-    }
-
-    .right-pane {
-        height: auto;
-        width: auto;
-    }
-
-    .server {
-        margin: 0;
-    }
 }
