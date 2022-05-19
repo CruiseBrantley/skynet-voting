@@ -20,7 +20,6 @@ export default function Results ({ data, currentServer }) {
 
   return (
     <div className='right-pane'>
-      {console.log(highest)}
       {data ? (
         <>
           <VictoryBar
